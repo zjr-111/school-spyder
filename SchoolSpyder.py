@@ -8,11 +8,14 @@ import os
 import requests
 from bs4 import BeautifulSoup
 import time 
+# 用户请求头
 headers={
-    'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko)'
+    'User-Agent': ........
     }
+# 用session()函数简化下面的函数
 session = requests.Session()
 session.headers.update(headers)
+# 将请求的页面内的标题打印出来
 def mulu(wang):
     suozai = session.get(wang)
     suozai.encoding = 'utf-8'
@@ -24,6 +27,7 @@ def mulu(wang):
         i = i.text
         print(str(o)+i)
         o = o+1
+
 def xunzhao(wang1,wang2):
    zhu = session.get(wang1)
    soup = BeautifulSoup(zhu.text,'html.parser')
